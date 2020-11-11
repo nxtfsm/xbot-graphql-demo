@@ -1,3 +1,10 @@
 // ./src/repository/index.js
-import MongoDbCollection from './_mongoDBrepository'
-export default MongoDbCollection
+import DatabaseConnection from '../config';
+import interfaceMongoDB from './_interfaceMongoDB';
+
+const Repository = (name) => {
+  const db = DatabaseConnection.get().collection(name);
+  return interfaceMongoDB(db);
+}
+
+export default Repository

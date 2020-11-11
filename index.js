@@ -2,13 +2,13 @@ import 'dotenv/config';
 import cors from 'cors';
 import express from 'express';
 import { graphqlHTTP } from 'express-graphql';
-import { setupDB } from './src/config';
+import DatabaseConnection from './src/config';
 import schema from './src/graphql';
 
 const app = express(),
       port = process.env.PORT;
 
-setupDB()
+DatabaseConnection.setup()
 
 app.use( cors() );
 app.use(
@@ -19,9 +19,5 @@ app.use(
     pretty: true
   })
  );
-
-app.get('/', (req, res) => {
-  res.send('Hello World')
-})
 
 app.listen(port)

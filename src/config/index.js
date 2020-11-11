@@ -1,4 +1,9 @@
 // ./src/config/index.js
-
 import { setupDB, getDB} from './_databaseConnection'
-export { setupDB, getDB }
+
+const DatabaseConnection = {
+  setup: setupDB,
+  get: getDB
+}
+
+export default DatabaseConnection 

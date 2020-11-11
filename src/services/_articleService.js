@@ -1,9 +1,9 @@
 // ./src/services/_articleService.js
-import MongoDbCollection from '../repository';
+import Repository from '../repository';
 
 const Tutorials = {
-  external: () => new MongoDbCollection('externalTutorials'),
-  internal: () => new MongoDbCollection('internalTutorials')
+  external: () => Repository('externalTutorials'),
+  internal: () => Repository('internalTutorials')
 }
 
 export default Tutorials
