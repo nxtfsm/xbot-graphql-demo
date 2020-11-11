@@ -20,8 +20,8 @@ function _fields() {
     title: { type: GraphQLString },
     externalUrl: { type: GraphQLString },
     summary: { type: GraphQLString },
-    content: { type: GraphQLString },
-    postedBy: { type: User.type }
+    content: { type: GraphQLString }
+    //postedBy: { type: User.type }
   }
 }
 
