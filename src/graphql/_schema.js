@@ -1,22 +1,22 @@
 // ./src/graphql/_schema.js
 import { GraphQLSchema, GraphQLObjectType } from 'graphql';
 import { Tutorials } from '../services';
-import { GetAllArticles } from './queries';
-import { CreateArticleMutation } from './mutations';
+import Query from './queries';
+import Mutations from './mutations';
 
 const RootQuery = new GraphQLObjectType({
   name: 'Query',
   fields: () => ({
-    externalTutorials: GetAllArticles(Tutorials.external),
-    internalTutorials: GetAllArticles(Tutorials.internal)
+    externalTutorials: Query.articles.getAll(Tutorials.external),
+    internalTutorials: Query.articles.getAll(Tutorials.internal)
   })
 })
 
 const RootMutation = new GraphQLObjectType({
   name: 'Mutation',
   fields: () => ({
-    addExternalTutorial: CreateArticleMutation(Tutorials.external),
-    addInternalTutorial: CreateArticleMutation(Tutorials.internal)
+    addExternalTutorial: Mutations.article.create(Tutorials.external),
+    addInternalTutorial: Mutations.article.create(Tutorials.internal)
     })
   }
 );

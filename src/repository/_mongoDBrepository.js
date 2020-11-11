@@ -35,4 +35,14 @@ export default class MongoDbCollection {
     });
   }
 
+  deleteById(_id) {
+    return new Promise((resolve, reject) => {
+      this.collection.findOneAndDelete({ id: ObjectId(_id)}, (err, data) => {
+          if (err) { reject(err) }
+          resolve(data)
+        }
+      )
+    })
+  }
+
 }
