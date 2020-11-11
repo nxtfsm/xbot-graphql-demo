@@ -5,16 +5,30 @@ import {
   GraphQLString,
   GraphQLBoolean } from 'graphql';
 
-const UserType = new GraphQLObjectType({
-  name: 'User',
-  description: 'User record tied to @xaviermicronesia.org account',
-  fields: () => ({
+const description = 'User record tied to @xaviermicronesia.org account';
+
+const User = {
+  type: _type(),
+  description: description,
+  fields: _fields()
+}
+
+function _type() {
+  return new GraphQLObjectType({
+    name: 'User',
+    description: description,
+    fields: _fields
+  })
+}
+
+function _fields() {
+  return {
     id: { type: GraphQLID },
     atXavierAccount: { type: GraphQLString },
     firstName: { type: GraphQLString },
     lastName: { type: GraphQLString },
     isEditor: { type: GraphQLBoolean }
-  })
-})
+  }
+}
 
-export default UserType
+export default User

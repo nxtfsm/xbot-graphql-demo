@@ -1,2 +1,3 @@
 import Tutorials from './_articleService';
-export { Tutorials }
+import Users from './_userService';
+export { Tutorials, Users }

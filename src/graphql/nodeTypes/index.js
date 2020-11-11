@@ -1,3 +1,3 @@
-import ArticleType from './_ArticleType';
-import UserType from './_UserType';
-export { ArticleType }
+import Article from './_ArticleType';
+import User from './_UserType';
+export { Article }

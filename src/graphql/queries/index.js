@@ -1,10 +1,10 @@
 // ./src/queries/index.js
-import GetAllArticles from './_articlesQuery';
+import getAllofType from './_getAllofType';
+import getById from './_getById';
 
 const Query = {
-  articles: {
-    getAll: GetAllArticles
-  }
+  getAll: getAllofType,
+  getById: getById
 }
 
 export default Query
