@@ -3,10 +3,8 @@ import getAllofType from './_getAllofType';
 import getById from './_getById';
 import filter from './_filter';
 
-const Query = {
+export default {
   getAll: getAllofType,
   getById: getById,
   filter: filter
 }
-
-export default Query

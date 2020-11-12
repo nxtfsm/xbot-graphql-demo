@@ -4,7 +4,7 @@
   "description": "graphql server for xbot demo",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --exec babel-node ./index.js",
+    "start": "nodemon --exec babel-node ./src",
     "test": "jest --passWithNoTests --coverage"
   },
   "keywords": [],

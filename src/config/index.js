@@ -6,4 +6,4 @@ const DatabaseClient = {
   getDB: getDB
 }
 
-export default DatabaseClient;
+export default DatabaseClient

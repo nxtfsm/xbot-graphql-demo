@@ -1,5 +1,5 @@
 // ./src/graphql/_schema.js
-import { GraphQLSchema, GraphQLObjectType, GraphQLList, GraphQLString } from 'graphql';
+import { GraphQLSchema, GraphQLObjectType } from 'graphql';
 import { Tutorials } from '../services';
 import { Article } from './nodeTypes';
 import Query from './queries';
@@ -24,6 +24,4 @@ const RootMutation = new GraphQLObjectType({
   }
 );
 
-const schema = new GraphQLSchema({ query: RootQuery, mutation: RootMutation });
-
-export default schema
+export default new GraphQLSchema({ query: RootQuery, mutation: RootMutation });
