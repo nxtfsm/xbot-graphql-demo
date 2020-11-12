@@ -1,10 +1,10 @@
 // ./src/repository/index.js
 import DatabaseClient from '../config';
-import interfaceMongoDB from './_interfaceMongoDB';
+import InterfaceMongoDB from './mongoInterface';
 
 const Repository = (name) => {
   const db = DatabaseClient.getDB().collection(name);
-  return interfaceMongoDB(db);
+  return InterfaceMongoDB(db);
 }
 
 export default Repository

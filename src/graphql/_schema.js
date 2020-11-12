@@ -11,6 +11,7 @@ const RootQuery = new GraphQLObjectType({
     external: Query.getAll(Tutorials.external, Article),
     internal: Query.getAll(Tutorials.internal, Article),
     externalFilter: Query.filter(Tutorials.external, Article),
+    internalFilter: Query.filter(Tutorials.internal, Article)
   })
 })
 
