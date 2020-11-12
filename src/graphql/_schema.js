@@ -1,15 +1,16 @@
 // ./src/graphql/_schema.js
-import { GraphQLSchema, GraphQLObjectType } from 'graphql';
+import { GraphQLSchema, GraphQLObjectType, GraphQLList, GraphQLString } from 'graphql';
 import { Tutorials } from '../services';
 import { Article } from './nodeTypes';
 import Query from './queries';
 import Mutations from './mutations';
 
 const RootQuery = new GraphQLObjectType({
-  name: 'Query',
+  name: 'RootQuery',
   fields: () => ({
-    externalTutorials: Query.getAll(Tutorials.external, Article.type),
-    internalTutorials: Query.getAll(Tutorials.internal, Article.type)
+    external: Query.getAll(Tutorials.external, Article),
+    internal: Query.getAll(Tutorials.internal, Article),
+    externalFilter: Query.filter(Tutorials.external, Article),
   })
 })
 

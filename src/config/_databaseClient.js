@@ -1,9 +1,9 @@
-// ./config/_databaseConnection.js
+// ./config/_databaseClient.js
 const MongoClient = require('mongodb').MongoClient;
 
 let mongoDB;
 
-export const setupDB = callback => {
+export const connect = callback => {
   const uri = process.env.MONGODB_URI;
 
   MongoClient.connect(

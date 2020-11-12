@@ -3,8 +3,7 @@ import { GraphQLList } from 'graphql';
 
 export default function getAllofType(collection, objectType) {
   return {
-    type: GraphQLList(objectType),
-    args: {},
+    type: GraphQLList(objectType.type),
     resolve: async () => {
       const inCollection = collection(),
             result = await inCollection.getAll();

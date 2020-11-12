@@ -6,7 +6,10 @@ export default function interfaceMongoDB(collection) {
     getAll: () => _getAll(collection),
     getById: (_id) => _getById(collection, _id),
     create: (opt) => _create(collection, opt),
-    deleteById: (_id) => _deleteById(collection, _id)
+    deleteById: (_id) => _deleteById(collection, _id),
+    filter: {
+      matchAll: (args) => _getByFilterMatchAll(collection, args)
+    }
   }
 }
 
@@ -17,6 +20,23 @@ function _getAll(collection) {
       resolve(data)
     });
   });
+}
+
+function _getByFilterMatchAll(collection, properties) {
+  const query = (function() {
+        const keyValues = Object.entries(properties);
+        const queryConditions = keyValues.map(pair => {
+                return { [pair[0]]: { "$in": [pair[1]] } }
+              });
+        return { $and: queryConditions }
+      })()
+
+ return new Promise((resolve, reject) => {
+   collection.find(query).toArray((err, data) => {
+     if (err) { reject(err) }
+     resolve(data)
+   })
+ })
 }
 
 function _getById(collection, _id) {

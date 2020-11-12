@@ -2,13 +2,13 @@ import 'dotenv/config';
 import cors from 'cors';
 import express from 'express';
 import { graphqlHTTP } from 'express-graphql';
-import DatabaseConnection from './src/config';
+import DatabaseClient from './src/config';
 import schema from './src/graphql';
 
 const app = express(),
       port = process.env.PORT;
 
-DatabaseConnection.setup()
+DatabaseClient.connect()
 
 app.use( cors() );
 app.use(
