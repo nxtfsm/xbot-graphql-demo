@@ -2,17 +2,13 @@
 import { GraphQLObjectType, GraphQLID, GraphQLString } from 'graphql';
 import User from './_UserType'
 
-const Article = {
-  type: _type(),
-  fields: _fields
-}
+const description = "article record for blog posts"
 
-function _type() {
-  return new GraphQLObjectType({
-    name: 'Article',
-    fields: _fields()
-  })
-}
+export default new GraphQLObjectType({
+  description,
+  name: 'Article',
+  fields: _fields()
+})
 
 function _fields() {
   return {
@@ -20,9 +16,7 @@ function _fields() {
     title: { type: GraphQLString },
     externalUrl: { type: GraphQLString },
     summary: { type: GraphQLString },
-    content: { type: GraphQLString }
-    //postedBy: { type: User.type }
+    content: { type: GraphQLString },
+    postedBy: { type: User }
   }
 }
-
-export default Article

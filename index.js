@@ -5,19 +5,23 @@ import { graphqlHTTP } from 'express-graphql';
 import DatabaseClient from './src/config';
 import schema from './src/graphql';
 
-const app = express(),
-      port = process.env.PORT;
+const server = async () => {
+  const app = express(),
+        port = process.env.PORT;
 
-DatabaseClient.connect()
+  DatabaseClient.connect()
 
-app.use( cors() );
-app.use(
-  '/graphql',
-  graphqlHTTP({
-    schema,
-    graphiql: true,
-    pretty: true
-  })
- );
+  app.use( cors() );
+  app.use(
+    '/graphql',
+    graphqlHTTP({
+      schema,
+      graphiql: true,
+      pretty: true
+    })
+   );
 
-app.listen(port)
+  app.listen(port)
+}
+
+server()

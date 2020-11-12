@@ -3,23 +3,16 @@ import {
   GraphQLObjectType,
   GraphQLID,
   GraphQLString,
-  GraphQLBoolean } from 'graphql';
+  GraphQLBoolean,
+ } from 'graphql';
 
 const description = 'User record tied to @xaviermicronesia.org account';
 
-const User = {
-  type: _type(),
-  description: description,
+export default new GraphQLObjectType({
+  description,
+  name: 'User',
   fields: _fields()
-}
-
-function _type() {
-  return new GraphQLObjectType({
-    name: 'User',
-    description: description,
-    fields: _fields
-  })
-}
+})
 
 function _fields() {
   return {
@@ -30,5 +23,3 @@ function _fields() {
     isEditor: { type: GraphQLBoolean }
   }
 }
-
-export default User

@@ -1,9 +1,9 @@
 // ./src/graphql/mutations/index.js
-import CreateRecordMutation from './_createRecord';
+import CreateRecord from './_createRecord';
 import DeleteById from './_deleteById';
 
 const Mutations = {
-  create: CreateRecordMutation,
+  create: CreateRecord,
   delete: DeleteById
 }
 
